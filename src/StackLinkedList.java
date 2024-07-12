@@ -23,9 +23,20 @@ public class StackLinkedList {
         if(top == null) {
             throw new Exception("Stack is Empty");
         }
-        else{
-            top = top.next;
-            System.out.println("Removed element from stack");
+        top = top.next;
+        System.out.println("Removed element from stack");
+    }
+
+    public void printStack() throws Exception {
+
+        if(top == null) {
+            throw new Exception("Stack is Empty");
+        }
+        Node currentNode = top;
+        while(currentNode!=null) {
+            System.out.println(currentNode.data);
+            currentNode = currentNode.next;
         }
     }
+
 }
