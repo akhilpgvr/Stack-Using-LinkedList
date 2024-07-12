@@ -2,8 +2,7 @@ import com.sun.security.jgss.GSSUtil;
 
 public class StackLinkedList {
 
-    Node top;
-
+    Node top; //stackTop
 
     public void push(int data) {
 
@@ -20,22 +19,36 @@ public class StackLinkedList {
 
     public void pop() throws Exception {
 
-        if(top == null) {
-            throw new Exception("Stack is Empty");
-        }
+        checkStackEmpty(); // checking stack is empty
         top = top.next;
         System.out.println("Removed element from stack");
     }
 
     public void printStack() throws Exception {
 
-        if(top == null) {
-            throw new Exception("Stack is Empty");
-        }
+        checkStackEmpty(); // checking stack is empty
         Node currentNode = top;
         while(currentNode!=null) {
             System.out.println(currentNode.data);
             currentNode = currentNode.next;
+        }
+    }
+
+    public void peek() throws Exception {
+
+        checkStackEmpty(); // checking stack is empty
+        System.out.println("Stack Top: "+top.data);
+    }
+
+    public boolean isEmpty() {
+
+        return top==null;
+    }
+
+    public void checkStackEmpty() throws Exception {
+
+        if(top == null) {
+            throw new Exception("Stack is Empty");
         }
     }
 
